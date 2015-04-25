@@ -49,11 +49,7 @@ Router::scope('/', function ($routes) {
      */
     $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
 
-    /**
-     * ...and connect the rest of 'Pages' controller's URLs.
-     */
-    // $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
-
+    // Contato
     $routes->connect('/contato', ['controller' => 'Pages', 'action' => 'display', 'home']);
     
     /**

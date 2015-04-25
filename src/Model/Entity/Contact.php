@@ -9,14 +9,14 @@ use Cake\ORM\Entity;
 class Contact extends Entity
 {
 
-    /**
-     * Fields that can be mass assigned using newEntity() or patchEntity().
-     *
-     * @var array
-     */
-    protected $_accessible = [
-        'name' => true,
-        'email' => true,
-        'message' => true,
-    ];
+  /**
+   * Fields that can be mass assigned using newEntity() or patchEntity().
+   *
+   * @var array
+   */
+  protected $_accessible = [
+    'name' => true,
+    'email' => true,
+    'message' => true,
+  ];
 }

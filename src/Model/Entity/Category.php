@@ -9,13 +9,13 @@ use Cake\ORM\Entity;
 class Category extends Entity
 {
 
-    /**
-     * Fields that can be mass assigned using newEntity() or patchEntity().
-     *
-     * @var array
-     */
-    protected $_accessible = [
-        'name' => true,
-        'posts' => true,
-    ];
+  /**
+   * Fields that can be mass assigned using newEntity() or patchEntity().
+   *
+   * @var array
+   */
+  protected $_accessible = [
+    'name' => true,
+    'posts' => true,
+  ];
 }

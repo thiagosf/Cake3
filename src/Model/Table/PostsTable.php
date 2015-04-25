@@ -13,53 +13,53 @@ use Cake\Validation\Validator;
 class PostsTable extends Table
 {
 
-    /**
-     * Initialize method
-     *
-     * @param array $config The configuration for the Table.
-     * @return void
-     */
-    public function initialize(array $config)
-    {
-        $this->table('posts');
-        $this->displayField('title');
-        $this->primaryKey('id');
-        $this->addBehavior('Timestamp');
-        $this->belongsTo('Categories', [
-            'foreignKey' => 'category_id'
-        ]);
-    }
+  /**
+   * Initialize method
+   *
+   * @param array $config The configuration for the Table.
+   * @return void
+   */
+  public function initialize(array $config)
+  {
+    $this->table('posts');
+    $this->displayField('title');
+    $this->primaryKey('id');
+    $this->addBehavior('Timestamp');
+    $this->belongsTo('Categories', [
+      'foreignKey' => 'category_id'
+    ]);
+  }
 
-    /**
-     * Default validation rules.
-     *
-     * @param \Cake\Validation\Validator $validator Validator instance.
-     * @return \Cake\Validation\Validator
-     */
-    public function validationDefault(Validator $validator)
-    {
-        $validator
-            ->add('id', 'valid', ['rule' => 'numeric'])
-            ->allowEmpty('id', 'create')
-            ->allowEmpty('title')
-            ->allowEmpty('slug')
-            ->add('publish_date', 'valid', ['rule' => 'datetime'])
-            ->allowEmpty('publish_date')
-            ->allowEmpty('body');
+  /**
+   * Default validation rules.
+   *
+   * @param \Cake\Validation\Validator $validator Validator instance.
+   * @return \Cake\Validation\Validator
+   */
+  public function validationDefault(Validator $validator)
+  {
+    $validator
+      ->add('id', 'valid', ['rule' => 'numeric'])
+      ->allowEmpty('id', 'create')
+      ->allowEmpty('title')
+      ->allowEmpty('slug')
+      ->add('publish_date', 'valid', ['rule' => 'datetime'])
+      ->allowEmpty('publish_date')
+      ->allowEmpty('body');
 
-        return $validator;
-    }
+    return $validator;
+  }
 
-    /**
-     * Returns a rules checker object that will be used for validating
-     * application integrity.
-     *
-     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
-     * @return \Cake\ORM\RulesChecker
-     */
-    public function buildRules(RulesChecker $rules)
-    {
-        $rules->add($rules->existsIn(['category_id'], 'Categories'));
-        return $rules;
-    }
+  /**
+   * Returns a rules checker object that will be used for validating
+   * application integrity.
+   *
+   * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+   * @return \Cake\ORM\RulesChecker
+   */
+  public function buildRules(RulesChecker $rules)
+  {
+    $rules->add($rules->existsIn(['category_id'], 'Categories'));
+    return $rules;
+  }
 }

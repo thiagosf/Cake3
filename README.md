@@ -4,12 +4,12 @@ E Estudo da versão 3 do CakePHP
 
 ## Estudos
 
-~~1. Configuração~~
-~~2. Controller e View~~
-~~3. Tabelas e Entidades (relacionamentos)~~
-~~4. Rotas e prefixos~~
-~~5. Autenticação~~
-~~6. Bake~~
+1. ~~Configuração~~
+2. ~~Controller e View~~
+3. ~~Tabelas e Entidades (relacionamentos)~~
+4. ~~Rotas e prefixos~~
+5. ~~Autenticação~~
+6. ~~Bake~~
 7. Plugins
 8. Caching
 9. Console e Shell

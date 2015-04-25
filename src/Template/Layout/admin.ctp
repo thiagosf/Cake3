@@ -37,19 +37,15 @@
   <div id="container">
     <div id="content">
       <?php echo $this->Flash->render() ?>
+      <div class="strip-header">
+        <div class="row">
+          <div class="column">
+            <h1 class="main-title"><?php echo $this->fetch('title') ?></h1>
+          </div>
+        </div>
+      </div>
       <div class="row">
         <div class="column">
-          <?php 
-
-          if ( $this->request->controller !== 'Dashboard' ) {
-
-            ?>
-            <h1 class="main-title"><?php echo $this->fetch('title') ?></h1>
-            <?php 
-
-          } 
-
-          ?>
           <?php echo $this->fetch('content') ?>
         </div>
       </div>

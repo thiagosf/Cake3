@@ -36,7 +36,14 @@ class AppController extends Controller
    * @return void
    */
   public function initialize() {
-  parent::initialize();
-  $this->loadComponent('Flash');
+    parent::initialize();
+    $this->loadComponent('Flash');
+  }
+
+  public function isAuthorized ($user) {
+    if ( ! empty($user) ) {
+      return true;
+    }
+    return false;
   }
 }

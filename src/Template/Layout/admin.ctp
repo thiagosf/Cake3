@@ -9,6 +9,7 @@
   <?php echo $this->Html->meta('icon') ?>
 
   <?php echo $this->Html->css('http://fonts.googleapis.com/css?family=Cabin:400,400italic,500,500italic,600,600italic,700,700italic') ?>
+  <?php echo $this->Html->css('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css') ?>
   <?php echo $this->Html->css('base.css') ?>
   <?php echo $this->Html->css('admin.css') ?>
 
@@ -21,7 +22,7 @@
     <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
         <li class="name">
-          <h1><?php echo $this->Html->link("Cake3", ['controller' => 'Dashboard']); ?></h1>
+          <h1><?php echo $this->Html->link("<i class=\"fa fa-diamond\"></i> Cake3", ['controller' => 'Dashboard'], ['escape' => false]); ?></h1>
         </li>
         <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
       </ul>
@@ -31,12 +32,16 @@
           <li><?php echo $this->Html->link("Categorias", ['controller' => 'Categories']); ?></li>
           <li><?php echo $this->Html->link("Contatos", ['controller' => 'Contacts']); ?></li>
         </ul>
+        <ul class="right">
+          <li>
+            <?php echo $this->Html->link("<i class=\"fa fa-power-off\"></i> Sair", ['controller' => 'Users', 'action' => 'logout'], ['escape' => false]); ?>
+          </li>
+        </ul>
       </section>
     </nav>
   </div>
   <div id="container">
     <div id="content">
-      <?php echo $this->Flash->render() ?>
       <div class="strip-header">
         <div class="row">
           <div class="column">
@@ -46,6 +51,7 @@
       </div>
       <div class="row">
         <div class="column">
+          <?php echo $this->Flash->render() ?>
           <?php echo $this->fetch('content') ?>
         </div>
       </div>

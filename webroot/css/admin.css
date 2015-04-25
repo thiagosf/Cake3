@@ -34,6 +34,13 @@ h1.main-title {
   line-height: 56px;
   font-weight: 900;
 }
+.splash h3 span {
+  display: block;
+  margin: 0 0 20px 0;
+  font-size: 78px;
+  line-height: 1;
+  color: #444;
+}
 
 .strip-header {
   background: #ddd;

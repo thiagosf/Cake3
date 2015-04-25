@@ -50,7 +50,7 @@ Router::scope('/', function ($routes) {
     $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
 
     // Contato
-    $routes->connect('/contato', ['controller' => 'Pages', 'action' => 'display', 'home']);
+    $routes->connect('/contato', ['controller' => 'Pages', 'action' => 'contact']);
     
     /**
      * Connect catchall routes for all controllers.

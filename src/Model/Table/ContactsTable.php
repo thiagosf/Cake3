@@ -1,16 +1,16 @@
 <?php
 namespace App\Model\Table;
 
-use App\Model\Entity\Post;
+use App\Model\Entity\Contact;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Posts Model
+ * Contacts Model
  */
-class PostsTable extends Table
+class ContactsTable extends Table
 {
 
     /**
@@ -21,13 +21,10 @@ class PostsTable extends Table
      */
     public function initialize(array $config)
     {
-        $this->table('posts');
-        $this->displayField('title');
+        $this->table('contacts');
+        $this->displayField('name');
         $this->primaryKey('id');
         $this->addBehavior('Timestamp');
-        $this->belongsTo('Categories', [
-            'foreignKey' => 'category_id'
-        ]);
     }
 
     /**
@@ -41,11 +38,12 @@ class PostsTable extends Table
         $validator
             ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create')
-            ->allowEmpty('title')
-            ->allowEmpty('slug')
-            ->add('publish_date', 'valid', ['rule' => 'datetime'])
-            ->allowEmpty('publish_date')
-            ->allowEmpty('body');
+            ->requirePresence('name', 'create')
+            ->notEmpty('name')
+            ->add('email', 'valid', ['rule' => 'email'])
+            ->requirePresence('email', 'create')
+            ->notEmpty('email')
+            ->allowEmpty('message');
 
         return $validator;
     }
@@ -59,7 +57,7 @@ class PostsTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['category_id'], 'Categories'));
+        $rules->add($rules->isUnique(['email'], 'E-mail já utilizado'));
         return $rules;
     }
 }

@@ -82,4 +82,11 @@ class PagesController extends AppController
     $this->response->body(json_encode($data));
     return $this->response;
   }
+
+  public function contact () {
+    if ( $this->request->is("posts") ) {
+      pr($this->request->data);
+      exit;
+    }
+  }
 }

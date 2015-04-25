@@ -4,9 +4,9 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Post Entity.
+ * Category Entity.
  */
-class Post extends Entity
+class Category extends Entity
 {
 
     /**
@@ -15,10 +15,7 @@ class Post extends Entity
      * @var array
      */
     protected $_accessible = [
-        'category_id' => true,
-        'title' => true,
-        'slug' => true,
-        'publish_date' => true,
-        'body' => true,
+        'name' => true,
+        'posts' => true,
     ];
 }

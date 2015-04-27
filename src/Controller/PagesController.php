@@ -38,48 +38,48 @@ class PagesController extends AppController
    *   be found or \Cake\View\Exception\MissingTemplateException in debug mode.
    */
   public function display() {
-  $path = func_get_args();
-  
-  $count = count($path);
-  if (!$count) {
-    return $this->redirect('/');
-  }
-  $page = $subpage = null;
-  
-  if (!empty($path[0])) {
-    $page = $path[0];
-  }
-  if (!empty($path[1])) {
-    $subpage = $path[1];
-  }
-  $this->set(compact('page', 'subpage'));
-  
-  try {
-    $this->render(implode('/', $path));
-  }
-  catch(MissingTemplateException $e) {
-    if (Configure::read('debug')) {
-    throw $e;
+    $path = func_get_args();
+    
+    $count = count($path);
+    if (!$count) {
+      return $this->redirect('/');
     }
-    throw new NotFoundException();
-  }
+    $page = $subpage = null;
+    
+    if (!empty($path[0])) {
+      $page = $path[0];
+    }
+    if (!empty($path[1])) {
+      $subpage = $path[1];
+    }
+    $this->set(compact('page', 'subpage'));
+    
+    try {
+      $this->render(implode('/', $path));
+    }
+    catch(MissingTemplateException $e) {
+      if (Configure::read('debug')) {
+        throw $e;
+      }
+      throw new NotFoundException();
+    }
   }
 
   public function api () {
 
-  // Usando tabela com entidade
-  $posts = TableRegistry::get("Posts");
-  $data = $posts->find()->where(["publish_date <= NOW()"])->all();
-  foreach ( $data as $item ) {
-    pr($item->title);
-    pr($item->link());
-    pr($item->toArray());
-    pr("---------------");
-  }
-  exit;
+    // Usando tabela com entidade
+    $posts = TableRegistry::get("Posts");
+    $data = $posts->find()->where(["publish_date <= NOW()"])->all();
+    foreach ( $data as $item ) {
+      pr($item->title);
+      pr($item->link());
+      pr($item->toArray());
+      pr("---------------");
+    }
+    exit;
 
-  $this->response->type("json");
-  $this->response->body(json_encode($data));
-  return $this->response;
+    $this->response->type("json");
+    $this->response->body(json_encode($data));
+    return $this->response;
   }
 }

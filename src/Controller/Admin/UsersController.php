@@ -23,9 +23,9 @@ class UsersController extends AdminController
       }
     }
     $images = [
-      "http://www.wallpapercdn.com/wp-content/uploads/2014/10/Aurora-Borealis-Desktop-Wallpaper.jpg", 
-      "http://www.wallpapercdn.com/wp-content/uploads/2015/02/Nature-Wallpaper-1080p.jpg", 
-      "http://www.wallpapercdn.com/wp-content/uploads/2015/02/Beach-Wallpaper-HD.jpg"
+      "/img/admin/alaska.jpg", 
+      "/img/admin/bromo.jpg", 
+      "/img/admin/tree.jpg", 
     ];
     $image = $images[ rand( 0, count($images) - 1 ) ];
     $this->set(compact("image"));

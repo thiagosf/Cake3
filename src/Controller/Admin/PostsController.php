@@ -15,9 +15,9 @@ class PostsController extends AdminController
    * @return void
    */
   public function index() {
-  $this->paginate['contain'] = ['Categories'];
-  $this->set('posts', $this->paginate($this->Posts));
-  $this->set('_serialize', ['posts']);
+    $this->paginate['contain'] = ['Categories'];
+    $this->set('posts', $this->paginate($this->Posts));
+    $this->set('_serialize', ['posts']);
   }
   
   /**
@@ -28,9 +28,9 @@ class PostsController extends AdminController
    * @throws \Cake\Network\Exception\NotFoundException When record not found.
    */
   public function view($id = null) {
-  $post = $this->Posts->get($id, ['contain' => ['Categories']]);
-  $this->set('post', $post);
-  $this->set('_serialize', ['post']);
+    $post = $this->Posts->get($id, ['contain' => ['Categories']]);
+    $this->set('post', $post);
+    $this->set('_serialize', ['post']);
   }
   
   /**
@@ -39,22 +39,22 @@ class PostsController extends AdminController
    * @return void Redirects on successful add, renders view otherwise.
    */
   public function add() {
-  $post = $this->Posts->newEntity();
-  if ($this->request->is('post')) {
-    $post = $this->Posts->patchEntity($post, $this->request->data);
-    if ($this->Posts->save($post)) {
-    $this->Flash->success('The post has been saved.');
-    return $this->redirect(['action' => 'index']);
-    } 
-    else {
-    $this->Flash->error('The post could not be saved. Please, try again.');
+    $post = $this->Posts->newEntity();
+    if ($this->request->is('post')) {
+      $post = $this->Posts->patchEntity($post, $this->request->data);
+      if ($this->Posts->save($post)) {
+        $this->Flash->success('The post has been saved.');
+        return $this->redirect(['action' => 'index']);
+      } 
+      else {
+        $this->Flash->error('The post could not be saved. Please, try again.');
+      }
     }
-  }
-  
-  $this->set(compact('post'));
-  $this->set('_serialize', ['post']);
-  
-  $this->_setOptions();
+    
+    $this->set(compact('post'));
+    $this->set('_serialize', ['post']);
+    
+    $this->_setOptions();
   }
   
   /**
@@ -65,21 +65,21 @@ class PostsController extends AdminController
    * @throws \Cake\Network\Exception\NotFoundException When record not found.
    */
   public function edit($id = null) {
-  $post = $this->Posts->get($id, ['contain' => []]);
-  if ($this->request->is(['patch', 'post', 'put'])) {
-    $post = $this->Posts->patchEntity($post, $this->request->data);
-    if ($this->Posts->save($post)) {
-    $this->Flash->success('The post has been saved.');
-    return $this->redirect(['action' => 'index']);
-    } 
-    else {
-    $this->Flash->error('The post could not be saved. Please, try again.');
+    $post = $this->Posts->get($id, ['contain' => []]);
+    if ($this->request->is(['patch', 'post', 'put'])) {
+      $post = $this->Posts->patchEntity($post, $this->request->data);
+      if ($this->Posts->save($post)) {
+        $this->Flash->success('The post has been saved.');
+        return $this->redirect(['action' => 'index']);
+      } 
+      else {
+        $this->Flash->error('The post could not be saved. Please, try again.');
+      }
     }
-  }
-  $this->set(compact('post'));
-  $this->set('_serialize', ['post']);
-  
-  $this->_setOptions();
+    $this->set(compact('post'));
+    $this->set('_serialize', ['post']);
+    
+    $this->_setOptions();
   }
   
   /**
@@ -90,19 +90,19 @@ class PostsController extends AdminController
    * @throws \Cake\Network\Exception\NotFoundException When record not found.
    */
   public function delete($id = null) {
-  $this->request->allowMethod(['post', 'delete']);
-  $post = $this->Posts->get($id);
-  if ($this->Posts->delete($post)) {
-    $this->Flash->success('The post has been deleted.');
-  } 
-  else {
-    $this->Flash->error('The post could not be deleted. Please, try again.');
-  }
-  return $this->redirect(['action' => 'index']);
+    $this->request->allowMethod(['post', 'delete']);
+    $post = $this->Posts->get($id);
+    if ($this->Posts->delete($post)) {
+      $this->Flash->success('The post has been deleted.');
+    } 
+    else {
+      $this->Flash->error('The post could not be deleted. Please, try again.');
+    }
+    return $this->redirect(['action' => 'index']);
   }
   
   protected function _setOptions() {
-  $categories = $this->Posts->Categories->find("list");
-  $this->set(compact('categories'));
+    $categories = $this->Posts->Categories->find("list");
+    $this->set(compact('categories'));
   }
 }

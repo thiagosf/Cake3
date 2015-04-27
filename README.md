@@ -1,6 +1,6 @@
 # Cake3
 
-E Estudo da versão 3 do CakePHP
+Estudo da versão 3 do CakePHP
 
 ## Estudos
 

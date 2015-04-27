@@ -181,9 +181,6 @@ Request::addDetector('tablet', function ($request) {
 
 Plugin::load('Migrations');
 
-// Plugins 
-Plugin::load('Newsletter', ['routes' => true]);
-
 // Only try to load DebugKit in development mode
 // Debug Kit should not be installed on a production system
 if (Configure::read('debug')) {
@@ -196,3 +193,7 @@ if (Configure::read('debug')) {
 DispatcherFactory::add('Asset');
 DispatcherFactory::add('Routing');
 DispatcherFactory::add('ControllerFactory');
+
+// Plugins 
+Plugin::load('Newsletter', ['routes' => true]);
+Plugin::load('ContactManager', ['bootstrap' => false, 'routes' => true]);

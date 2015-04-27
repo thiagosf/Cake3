@@ -32,6 +32,7 @@
           <li><?php echo $this->Html->link("Categorias", ['controller' => 'Categories']); ?></li>
           <li><?php echo $this->Html->link("Contatos", ['controller' => 'Contacts']); ?></li>
           <li><?php echo $this->Html->link("Newsletter", ['controller' => 'Newsletter', 'plugin' => 'Newsletter']); ?></li>
+          <li><?php echo $this->Html->link("Gerenciador de Contatos", ['controller' => 'ContactManager', 'plugin' => 'ContactManager']); ?></li>
         </ul>
         <ul class="right">
           <li>

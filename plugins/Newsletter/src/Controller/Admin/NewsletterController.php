@@ -2,9 +2,9 @@
 
 namespace Newsletter\Controller\Admin;
 
-use Newsletter\Controller\AppController;
+use App\Controller\Admin\AdminController;
 
-class NewsletterController extends AppController
+class NewsletterController extends AdminController
 {
   public function index () {
     

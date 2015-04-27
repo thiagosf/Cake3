@@ -1,6 +1,8 @@
 <?php
 namespace App\Controller\Admin;
 
+use Cake\Cache\Cache;
+
 /**
  * Dashboard Controller
  *
@@ -15,6 +17,11 @@ class DashboardController extends AdminController
    * @return void
    */
   public function index() {
-  
+    $value = 1;
+    $data = Cache::remember("cache-data", function () use ($value) {
+      $data = ["title" => "Algum", "text" => "Lorem ipsum", "value" => $value];
+      return $data;
+    });
+    $this->set("data", $data);
   }
 }

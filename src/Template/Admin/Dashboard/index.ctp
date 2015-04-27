@@ -6,3 +6,7 @@
     The Power of PHP 
   </h3>
 </div>
+<p>
+  Dados do cache: 
+  <?php pr($data); ?>
+</p>

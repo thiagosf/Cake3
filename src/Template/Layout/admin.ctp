@@ -22,15 +22,15 @@
     <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
         <li class="name">
-          <h1><?php echo $this->Html->link("<i class=\"fa fa-diamond\"></i> Cake3", ['controller' => 'Dashboard'], ['escape' => false]); ?></h1>
+          <h1><?php echo $this->Html->link("<i class=\"fa fa-diamond\"></i> Cake3", ['controller' => 'Dashboard', 'plugin' => null], ['escape' => false]); ?></h1>
         </li>
         <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
       </ul>
       <section class="top-bar-section">
         <ul class="left">
-          <li><?php echo $this->Html->link("Posts", ['controller' => 'Posts', 'prefix' => 'admin']); ?></li>
-          <li><?php echo $this->Html->link("Categorias", ['controller' => 'Categories']); ?></li>
-          <li><?php echo $this->Html->link("Contatos", ['controller' => 'Contacts']); ?></li>
+          <li><?php echo $this->Html->link("Posts", ['controller' => 'Posts', 'prefix' => 'admin', 'plugin' => null]); ?></li>
+          <li><?php echo $this->Html->link("Categorias", ['controller' => 'Categories', 'plugin' => null]); ?></li>
+          <li><?php echo $this->Html->link("Contatos", ['controller' => 'Contacts', 'plugin' => null]); ?></li>
           <li><?php echo $this->Html->link("Newsletter", ['controller' => 'Newsletter', 'plugin' => 'Newsletter']); ?></li>
           <li><?php echo $this->Html->link("Gerenciador de Contatos", ['controller' => 'ContactManager', 'plugin' => 'ContactManager']); ?></li>
         </ul>

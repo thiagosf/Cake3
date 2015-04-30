@@ -19,6 +19,7 @@ use Cake\Core\Configure;
 use Cake\Network\Exception\NotFoundException;
 use Cake\View\Exception\MissingTemplateException;
 use Cake\ORM\TableRegistry;
+use Cake\Network\Email\Email;
 
 /**
  * Static content controller
@@ -80,6 +81,18 @@ class PagesController extends AppController
 
     $this->response->type("json");
     $this->response->body(json_encode($data));
+    return $this->response;
+  }
+
+  public function email () {
+    $email = new Email('default');
+    $email->from(['me@example.com' => 'My Site'])
+      ->to('you@example.com')
+      ->subject('About')
+      ->send('My message');
+    $output = $email;
+
+    $this->response->body( implode('', $output->message()) );
     return $this->response;
   }
 }

@@ -195,6 +195,7 @@ if (Configure::read('debug')) {
 DispatcherFactory::add('Asset');
 DispatcherFactory::add('Routing');
 DispatcherFactory::add('ControllerFactory');
+DispatcherFactory::add('LocaleSelector'); // Escolha automatica do idioma 
 
 // Plugins 
 Plugin::load('Newsletter', ['routes' => true]);

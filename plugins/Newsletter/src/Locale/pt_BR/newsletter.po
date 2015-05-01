@@ -1,0 +1,5 @@
+msgid "Plugin Newsletter"
+msgstr "Newsletter plugin"
+
+msgid "Email management"
+msgstr "Gerenciamento de emails"

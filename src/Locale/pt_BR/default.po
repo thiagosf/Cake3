@@ -1,0 +1,20 @@
+msgid "Posts"
+msgstr "Postagens"
+
+msgid "Categories"
+msgstr "Categorias"
+
+msgid "Contacts"
+msgstr "Contatos"
+
+msgid "Actions"
+msgstr "Ações"
+
+msgid "Edit Post"
+msgstr "Editar Post"
+
+msgid "Delete Post"
+msgstr "Remover Post"
+
+msgid "Published on `{0}` with a slug `{1}`"
+msgstr "Publicado em `{0}` com o slug `{1}`"

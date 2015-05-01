@@ -16,7 +16,7 @@ Estudo da versão 3 do CakePHP
 10. ~~Email~~
 11. ~~Error e Exception~~
 12. ~~Event System~~
-13. Internacionalização
+13. ~~Internacionalização~~
 14. Logging
 15. Modeless forms
 16. Pagination

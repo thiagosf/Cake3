@@ -33,13 +33,19 @@ use Cake\Routing\Router;
       </ul>
       <section class="top-bar-section">
         <ul class="left">
-          <li><?php echo $this->Html->link("Posts", ['controller' => 'Posts', 'prefix' => 'admin', 'plugin' => null]); ?></li>
-          <li><?php echo $this->Html->link("Categorias", ['controller' => 'Categories', 'plugin' => null]); ?></li>
-          <li><?php echo $this->Html->link("Contatos", ['controller' => 'Contacts', 'plugin' => null]); ?></li>
-          <li><?php echo $this->Html->link("Newsletter", Router::url(['_name' => 'boletins'])); ?></li>
-          <li><?php echo $this->Html->link("Gerenciador de Contatos", ['controller' => 'ContactManager', 'plugin' => 'ContactManager']); ?></li>
+          <li><?php echo $this->Html->link(__("Posts"), ['controller' => 'Posts', 'prefix' => 'admin', 'plugin' => null]); ?></li>
+          <li><?php echo $this->Html->link(__("Categories"), ['controller' => 'Categories', 'plugin' => null]); ?></li>
+          <li><?php echo $this->Html->link(__("Contacts"), ['controller' => 'Contacts', 'plugin' => null]); ?></li>
+          <li><?php echo $this->Html->link(__d("newsletter", "Newsletter"), Router::url(['_name' => 'boletins'])); ?></li>
+          <li><?php echo $this->Html->link(__d("contact_manager", "Contact manager"), ['controller' => 'ContactManager', 'plugin' => 'ContactManager']); ?></li>
         </ul>
         <ul class="right">
+          <li>
+            <?php echo $this->Html->link("PT", "?locale=pt_BR"); ?>
+          </li>
+          <li>
+            <?php echo $this->Html->link("EN", "?locale=en"); ?>
+          </li>
           <li>
             <?php echo $this->Html->link("<i class=\"fa fa-power-off\"></i> Sair", ['controller' => 'Users', 'action' => 'logout'], ['escape' => false]); ?>
           </li>

@@ -9,6 +9,7 @@
 </div>
 <div class="posts view large-10 medium-9 columns">
   <h2><?= h($post->title) ?></h2>
+  <p><?= __("Published on `{0}` with a slug `{1}`", [$post->publish_date, $post->slug]) ?></p>
   <div class="row">
     <div class="large-5 columns strings">
       <h6 class="subheader"><?= __('Title') ?></h6>

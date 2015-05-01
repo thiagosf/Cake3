@@ -16,6 +16,7 @@
 namespace App\Controller;
 
 use Cake\Controller\Controller;
+use Cake\I18n\I18n;
 
 /**
  * Application Controller
@@ -39,6 +40,11 @@ class AppController extends Controller
     parent::initialize();
     $this->loadComponent('Flash');
     $this->loadComponent('RequestHandler');
+
+    // Trocando idioma em tempo de execucao
+    if ( ! empty($this->request->query['locale']) ) {
+      I18n::locale($this->request->query['locale']);
+    }
   }
 
   public function isAuthorized ($user) {

@@ -20,6 +20,7 @@ use Cake\Network\Exception\NotFoundException;
 use Cake\View\Exception\MissingTemplateException;
 use Cake\ORM\TableRegistry;
 use Cake\Network\Email\Email;
+use App\Exception\CustomNotFoundException;
 
 /**
  * Static content controller
@@ -97,5 +98,9 @@ class PagesController extends AppController
 
     $this->response->body( implode('', $output->message()) );
     return $this->response;
+  }
+
+  public function custom_exception () {
+    throw new CustomNotFoundException(["page" => "test"]);
   }
 }

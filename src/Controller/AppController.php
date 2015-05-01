@@ -38,6 +38,7 @@ class AppController extends Controller
   public function initialize() {
     parent::initialize();
     $this->loadComponent('Flash');
+    $this->loadComponent('RequestHandler');
   }
 
   public function isAuthorized ($user) {

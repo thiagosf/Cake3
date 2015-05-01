@@ -1,6 +1,8 @@
 <?php
 namespace App\Controller\Admin;
 
+use Cake\Event\Event;
+
 /**
  * Posts Controller
  *
@@ -8,7 +10,6 @@ namespace App\Controller\Admin;
  */
 class PostsController extends AdminController
 {
-  
   /**
    * Index method
    *
@@ -31,6 +32,11 @@ class PostsController extends AdminController
     $post = $this->Posts->get($id, ['contain' => ['Categories']]);
     $this->set('post', $post);
     $this->set('_serialize', ['post']);
+
+    $event = new Event('Controller.Posts.view', $this, [
+      'post' => $post
+    ]);
+    $this->eventManager()->dispatch($event);
   }
   
   /**

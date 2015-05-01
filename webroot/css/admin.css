@@ -72,15 +72,17 @@ body.login::after {
   background: black;
   opacity: 1;
   content: "";
-  animation: addOpacity 500ms 800ms forwards;
+  animation: addOpacity 500ms forwards;
 }
 .login-box {
+  opacity: 0;
   position: absolute;
   z-index: 2;
   top: 50%;
   left: 50%;
   width: 400px;
-  margin: -150px 0 0 -200px;
+  transform: translateY(-50%) translateX(-50%) scale(1.2);
+  animation: showLoginBox 500ms 200ms forwards;
 }
 .login-box .login-copyright {
   color: white;
@@ -110,7 +112,7 @@ body.login::after {
 .login-box .wrapper form {
   margin: 0;
 }
-.login-box .wrapper form .submit input {
+.login-box .wrapper form button{
   margin: 0;
 }
 
@@ -121,5 +123,17 @@ body.login::after {
   }
   100% {
     opacity: .5;
+  }
+}
+
+/* Anima box do login */
+@keyframes showLoginBox {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%) translateX(-50%) scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-50%) translateX(-50%) scale(1);
   }
 }

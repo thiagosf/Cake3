@@ -69,6 +69,7 @@ Router::scope('/', function ($routes) {
 });
 
 Router::prefix('admin', function($routes) {
+  $routes->extensions(['json']);
   $routes->connect('/', ['controller' => 'Dashboard', 'action' => 'index', 'prefix' => 'admin']);
   $routes->fallbacks('InflectedRoute');
 });

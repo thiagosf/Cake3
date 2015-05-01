@@ -1,3 +1,8 @@
+<?php 
+
+use Cake\Routing\Router; 
+
+?>
 <!doctype html>
 <html>
 <head>
@@ -31,7 +36,7 @@
           <li><?php echo $this->Html->link("Posts", ['controller' => 'Posts', 'prefix' => 'admin', 'plugin' => null]); ?></li>
           <li><?php echo $this->Html->link("Categorias", ['controller' => 'Categories', 'plugin' => null]); ?></li>
           <li><?php echo $this->Html->link("Contatos", ['controller' => 'Contacts', 'plugin' => null]); ?></li>
-          <li><?php echo $this->Html->link("Newsletter", ['controller' => 'Newsletter', 'plugin' => 'Newsletter']); ?></li>
+          <li><?php echo $this->Html->link("Newsletter", Router::url(['_name' => 'boletins'])); ?></li>
           <li><?php echo $this->Html->link("Gerenciador de Contatos", ['controller' => 'ContactManager', 'plugin' => 'ContactManager']); ?></li>
         </ul>
         <ul class="right">

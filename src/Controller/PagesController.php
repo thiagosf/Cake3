@@ -86,7 +86,10 @@ class PagesController extends AppController
 
   public function email () {
     $email = new Email('default');
-    $email->from(['me@example.com' => 'My Site'])
+    $email->template("welcome", "fancy")
+      ->viewVars(['data' => ['name' => 'João']])
+      ->emailFormat('html')
+      ->from(['me@example.com' => 'My Site'])
       ->to('you@example.com')
       ->subject('About')
       ->send('My message');

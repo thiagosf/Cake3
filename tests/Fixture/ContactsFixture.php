@@ -12,15 +12,15 @@ class ContactsFixture extends TestFixture
       'id' => 1, 
       'name' => 'Lorem ipsum dolor sit amet', 
       'email' => 'email@localhost.com', 
-      'message' => 'Lorem ipsum dolor sit amet, aliquet feugiat. ', 
+      'message' => 'Lorem ipsum dolor sit amet, aliquet feugiat.', 
       'created' => '2015-04-25 18:17:20', 
       'updated' => '2015-04-25 18:17:20'
     ], 
     [
       'id' => 2, 
-      'name' => 'Lorem ipsum dolor sit amet 2', 
+      'name' => 'Lorem ipsum dolor sit amet', 
       'email' => 'email@localhost.com', 
-      'message' => 'Lorem ipsum dolor sit amet, aliquet feugiat. ', 
+      'message' => 'Lorem ipsum dolor sit amet, aliquet feugiat.', 
       'created' => '2015-04-25 18:17:20', 
       'updated' => '2015-04-25 18:17:20'
     ], 

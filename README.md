@@ -24,4 +24,4 @@ Estudo da versão 3 do CakePHP
 18. ~~Security~~
 19. ~~Sessions~~
 20. ~~Validation~~
-21. Testing
+21. ~~Testing~~

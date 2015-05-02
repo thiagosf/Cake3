@@ -15,7 +15,7 @@ class ContactValidator extends Validator {
       'rule' => 'email', 
       'message' => 'A valid email address is required', 
     ]);
-    $this->add('body', 'custom', [
+    $this->add('message', 'custom', [
       'rule' => [$this, 'customValidate'], 
       'message' => 'Custom validate (minimum 5 chars)', 
     ]);

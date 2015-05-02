@@ -5,72 +5,59 @@ use App\Model\Table\ContactsTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
-/**
- * App\Model\Table\ContactsTable Test Case
- */
 class ContactsTableTest extends TestCase
 {
-
-    /**
-     * Fixtures
-     *
-     * @var array
-     */
-    public $fixtures = [
-        'app.contacts'
+  public $fixtures = ['app.contacts'];
+  
+  public function setUp() {
+    parent::setUp();
+    $config = TableRegistry::exists('Contacts') ? [] : ['className' => 'App\Model\Table\ContactsTable'];
+    $this->Contacts = TableRegistry::get('Contacts', $config);
+  }
+  
+  public function tearDown() {
+    unset($this->Contacts);
+    parent::tearDown();
+  }
+  
+  public function testAdd() {
+    $data = [
+      "name" => "Joao Silveiras", 
+      "email" => "joao@gmail.com", 
+      "message" => "Mensagem legal", 
     ];
+    
+    $contact = $this->Contacts->newEntity();
+    $contact = $this->Contacts->patchEntity($contact, $data);
+    $result = $this->Contacts->save($contact);
+        
+    $this->assertEquals(true, ! empty($result->id));
+  }
+  
+  public function testFindRecord() {
+    $query = $this->Contacts
+              ->find()
+              ->select(['email'])
+              ->where(["email" => "email@localhost.com"]);
+    $this->assertInstanceOf('Cake\ORM\Query', $query);
 
-    /**
-     * setUp method
-     *
-     * @return void
-     */
-    public function setUp()
-    {
-        parent::setUp();
-        $config = TableRegistry::exists('Contacts') ? [] : ['className' => 'App\Model\Table\ContactsTable'];
-        $this->Contacts = TableRegistry::get('Contacts', $config);
-    }
+    $result = $query->first()->toArray();
+    $expected = ['email' => 'email@localhost.com'];
+    $this->assertEquals($expected, $result);
+  }
+  
+  public function testValidationDefault() {
+    $data = [
+      "name" => "Joao Silveiras", 
+      "email" => "joao@gmail.com", 
+      "message" => "Mensagem legal", 
+    ];
+    
+    $contact = $this->Contacts->newEntity($data);
+    $this->assertEquals(true, empty($contact->errors()));
 
-    /**
-     * tearDown method
-     *
-     * @return void
-     */
-    public function tearDown()
-    {
-        unset($this->Contacts);
-
-        parent::tearDown();
-    }
-
-    /**
-     * Test initialize method
-     *
-     * @return void
-     */
-    public function testInitialize()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test validationDefault method
-     *
-     * @return void
-     */
-    public function testValidationDefault()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test buildRules method
-     *
-     * @return void
-     */
-    public function testBuildRules()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
+    $data['email'] = 'aaa';
+    $contact = $this->Contacts->newEntity($data);
+    $this->assertEquals(false, empty($contact->errors()));
+  }
 }

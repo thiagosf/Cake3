@@ -6,6 +6,7 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use App\Model\Validation\ContactValidator;
 
 /**
  * Contacts Model
@@ -35,17 +36,7 @@ class ContactsTable extends Table
    */
   public function validationDefault(Validator $validator)
   {
-    $validator
-      ->add('id', 'valid', ['rule' => 'numeric'])
-      ->allowEmpty('id', 'create')
-      ->requirePresence('name', 'create')
-      ->notEmpty('name')
-      ->add('email', 'valid', ['rule' => 'email'])
-      ->requirePresence('email', 'create')
-      ->notEmpty('email')
-      ->allowEmpty('message');
-
-    return $validator;
+    return new ContactValidator();
   }
 
   /**

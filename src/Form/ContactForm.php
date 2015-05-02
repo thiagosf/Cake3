@@ -12,7 +12,7 @@ class ContactForm extends Form {
     return $schema
             ->addField('name', 'string')
             ->addField('email', ['type' => 'string'])
-            ->addField('body', ['type' => 'text']);
+            ->addField('message', ['type' => 'text']);
   }
   
   protected function _buildValidator(Validator $validator) {

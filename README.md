@@ -17,7 +17,7 @@ Estudo da versão 3 do CakePHP
 11. ~~Error e Exception~~
 12. ~~Event System~~
 13. ~~Internacionalização~~
-14. Logging
+14. ~~Logging~~
 15. Modeless forms
 16. Pagination
 17. REST

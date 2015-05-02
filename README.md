@@ -19,9 +19,9 @@ Estudo da versão 3 do CakePHP
 13. ~~Internacionalização~~
 14. ~~Logging~~
 15. ~~Modeless forms~~
-16. Pagination
-17. REST
-18. Security
+16. ~~Pagination~~
+17. ~~REST~~
+18. ~~Security~~
 19. Sessions
 20. Testing
 21. Validation

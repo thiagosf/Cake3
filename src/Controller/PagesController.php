@@ -21,6 +21,7 @@ use Cake\View\Exception\MissingTemplateException;
 use Cake\ORM\TableRegistry;
 use Cake\Network\Email\Email;
 use App\Exception\CustomNotFoundException;
+use Cake\Utility\Security;
 
 /**
  * Static content controller
@@ -103,4 +104,26 @@ class PagesController extends AppController
   public function custom_exception () {
     throw new CustomNotFoundException(["page" => "test"]);
   }
+
+  public function secutiry () {
+    $value = 123;
+    $key = 'wt1U5MACWJFTXGenFoZoiLwQGrLgdbHA';
+    $result = Security::encrypt($value, $key);
+    $decrypt = Security::decrypt($result, $key);
+
+    pr("----------------------------------------");
+    pr("Security::encrypt e Security::decrypt");
+    pr("----------------------------------------");
+    pr("Key: {$key}");
+    pr("Value: {$value}");
+    pr("Crypt: {$result}");
+    pr("Decrypt: {$decrypt}");
+
+    $value = 'CakePHP Framework';
+    $sha1 = Security::hash($value, 'sha1', true);
+    pr("Value: {$value}");
+    pr("Sha1 com salt do app.php: {$sha1}");
+
+    exit;
+  } 
 }

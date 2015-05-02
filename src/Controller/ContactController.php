@@ -4,8 +4,14 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use App\Form\ContactForm;
+use Cake\Event\Event;
 
 class ContactController extends AppController {
+  public function initialize () {
+    parent::initialize();
+    $this->loadComponent('Csrf');
+  }
+
   public function index () {
     $contact = new ContactForm();
     if ( $this->request->is("post") ) {

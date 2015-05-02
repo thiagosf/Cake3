@@ -5,6 +5,7 @@ namespace App\Form;
 use Cake\Form\Form;
 use Cake\Form\Schema;
 use Cake\Validation\Validator;
+use App\Model\Validation\ContactValidator;
 
 class ContactForm extends Form {
   protected function _buildSchema(Schema $schema) {
@@ -15,23 +16,7 @@ class ContactForm extends Form {
   }
   
   protected function _buildValidator(Validator $validator) {
-    return $validator
-        ->add(
-          'name', 
-          'length', 
-          [
-            'rule' => ['minLength', 10], 
-            'message' => 'A name is required'
-          ]
-        )
-        ->add(
-          'email', 
-          'format', 
-          [
-            'rule' => 'email', 
-            'message' => 'A valid email address is required', 
-          ]
-        );
+    return new ContactValidator();
   }
   
   protected function _execute(array $data) {

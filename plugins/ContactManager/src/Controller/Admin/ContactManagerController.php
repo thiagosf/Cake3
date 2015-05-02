@@ -22,5 +22,7 @@ class ContactManagerController extends AdminController {
       ]);
       return $package;
     });
+    $this->log("Debugg`s is on the table", "debug");
+    $this->log("Fatal error!", "error");
   }
 }

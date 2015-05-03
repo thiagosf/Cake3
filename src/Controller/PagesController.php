@@ -22,6 +22,9 @@ use Cake\ORM\TableRegistry;
 use Cake\Network\Email\Email;
 use App\Exception\CustomNotFoundException;
 use Cake\Utility\Security;
+use Cake\Collection\Collection;
+use Cake\Utility\Hash;
+use Cake\I18n\Time;
 
 /**
  * Static content controller
@@ -126,4 +129,54 @@ class PagesController extends AppController
 
     exit;
   } 
+
+  public function collection () {
+    $people = [
+      ['name' => 'João', 'age' => 20], 
+      ['name' => 'Andradina', 'age' => 45], 
+      ['name' => 'Maria', 'age' => 15], 
+      ['name' => 'Ulissis', 'age' => 5], 
+      ['name' => 'Armandus', 'age' => 63], 
+    ];
+    $collection = new Collection($people);
+    $group = $collection->sortBy('name', SORT_ASC, SORT_NATURAL)->groupBy(function($person) {
+      return mb_strtoupper($person['name'][0]);
+    });
+
+    pr('------------------------------');
+    pr('Pessoas');
+    pr('------------------------------');
+    pr($people);
+    
+    pr('------------------------------');
+    pr('Agrupando pela primeira letra do nome');
+    pr('------------------------------');
+    pr($group->toArray());
+    
+    pr('------------------------------');
+    pr('Hash::extract');
+    pr('------------------------------');
+    pr(Hash::extract($group->toArray(), '{s}.{n}.name'));
+    
+    exit;
+  }
+
+  public function time () {
+    $time = '18/12/2015 16:58:54';
+    $now = Time::createFromFormat('d/m/Y H:i:s', $time);
+
+    pr('------------------------------');
+    pr('Convertendo data');
+    pr('------------------------------');
+    pr($time);
+    pr($now->format('Y-m-d H:i:s'));
+
+    pr('------------------------------');
+    pr('Manipulando (adicionando 5 dias)');
+    pr('------------------------------');
+    $now->modify('+5 days');
+    pr($now->format('Y-m-d H:i:s'));
+
+    exit;
+  }
 }

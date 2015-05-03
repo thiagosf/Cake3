@@ -28,7 +28,6 @@ use Cake\I18n\I18n;
  */
 class AppController extends Controller
 {
-  
   /**
    * Initialization hook method.
    *

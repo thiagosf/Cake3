@@ -1,0 +1,1 @@
+<pre><code>Token: <?php echo $token; ?></code></pre>

@@ -23,4 +23,14 @@ class ContactController extends AppController {
     }
     $this->set("contact", $contact);
   }
+
+  public function get_data () {
+    if ( $this->request->is("requested") ) {
+      $data = ['success' => true];
+      $this->response->body($data);
+      return $this->response;
+    } else {
+      throw new \Cake\Network\Exception\ForbiddenException(__("Invalid request"));
+    }
+  }
 }

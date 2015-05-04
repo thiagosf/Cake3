@@ -1,7 +1,10 @@
 <?php 
 
-$token = $this->request->param('_csrfToken');
-pr("Token: {$token}");
+pr("Token via cell:");
+echo $this->cell('Inbox', [], ['cache' => true]);
+
+pr("Dados via requestAction:");
+pr($this->requestAction("/contact/get_data"));
 
 echo $this->Form->create($contact);
 echo $this->Form->input('name', ['required' => false]);

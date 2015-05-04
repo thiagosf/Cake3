@@ -25,3 +25,4 @@ Estudo da versão 3 do CakePHP
 19. ~~Sessions~~
 20. ~~Validation~~
 21. ~~Testing~~
+22. ~~View Cells~~
